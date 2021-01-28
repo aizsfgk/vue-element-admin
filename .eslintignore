@@ -1,0 +1,5 @@
+# 想要忽略项目中某个文件夹的提交规范
+build/*.js
+src/assets
+public
+dist
