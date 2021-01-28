@@ -5,7 +5,7 @@ const path = require('path')
 const defaultSettings = require('./src/settings.js')
 
 function resolve(dir) {
-  return path.join(__dirname, dir)
+  return path.join(__dirname, dir) /// __dirname 当前模块的目录名。 相当于 __filename 的 path.dirname()
 }
 
 const name = defaultSettings.title || 'vue Element Admin' // page title
@@ -50,7 +50,7 @@ module.exports = {
       }
     }
   },
-  chainWebpack(config) {
+  chainWebpack(config) { /// https://segmentfault.com/a/1190000019920162
     config.plugins.delete('preload') // TODO: need test
     config.plugins.delete('prefetch') // TODO: need test
 

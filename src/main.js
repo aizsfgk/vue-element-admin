@@ -1,16 +1,19 @@
+// css github: https://github.com/necolas/normalize.css
+import 'normalize.css/normalize.css' // a modern alternative to CSS resets
+// 自己定义的css；重写了element一些css
+import '@/styles/index.scss' // global css
+// element css
+import './styles/element-variables.scss'
+
+// ************ 库 js ************** //
 // vue 文件
 import Vue from 'vue'
 // cookie
 import Cookies from 'js-cookie'
-// css github: https://github.com/necolas/normalize.css
-import 'normalize.css/normalize.css' // a modern alternative to CSS resets
 // element
 import Element from 'element-ui'
-import './styles/element-variables.scss'
 
-// 自己定义的css；重写了element一些css
-import '@/styles/index.scss' // global css
-
+// ************ 自己写的js *********** //
 // 主app
 import App from './App'
 // 存储器
@@ -19,13 +22,11 @@ import store from './store'
 import router from './router'
 
 import './icons' // icon
-import './permission' // permission control
+import './permission' // permission control -> 也通过接口控制
 import './utils/error-log' // error log
-
 
 // 过滤器
 import * as filters from './filters' // global filters
-
 
 /**
  * If you don't want to use mock-server
@@ -34,7 +35,7 @@ import * as filters from './filters' // global filters
  *
  * Currently MockJs will be used in the production environment,
  * please remove it before going online ! ! !
- * 
+ *
  * 模拟数据
  */
 if (process.env.NODE_ENV === 'production') {
@@ -49,7 +50,7 @@ Vue.use(Element, {
 
 // register global utility filters
 Object.keys(filters).forEach(key => {
-  // console.log(key, '-----', filters[key])
+  console.log('filter-key: ', key)
   Vue.filter(key, filters[key])
 })
 
@@ -58,7 +59,7 @@ Vue.config.productionTip = true
 
 new Vue({
   el: '#app',
-  router,
-  store,
+  router, // 路由
+  store, // 全局状态管理，存储
   render: h => h(App)
 })
