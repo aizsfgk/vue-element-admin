@@ -23,7 +23,7 @@
       <!-- 右侧仪表盘 -->
       <right-panel v-if="showSettings">
         <!-- 设置 -->
-        <settings /> 
+        <settings />
       </right-panel>
 
     </div>
@@ -37,23 +37,23 @@ import ResizeMixin from './mixin/ResizeHandler'
 import { mapState } from 'vuex'
 
 export default {
-  name: 'Layout',  // 名字
+  name: 'Layout', // 名字
   components: {
-    AppMain,    // 主窗口
-    Navbar,     // 导航
+    AppMain, // 主窗口
+    Navbar, // 导航
     RightPanel, // 右侧仪表盘
-    Settings,   // 设置
-    Sidebar,    // 侧边栏
-    TagsView    // 面包屑
+    Settings, // 设置
+    Sidebar, // 侧边栏
+    TagsView // 面包屑
   },
   mixins: [ResizeMixin], // 混入，增加一些选项合并逻辑
   computed: {
     ...mapState({
-      sidebar: state => state.app.sidebar,
-      device: state => state.app.device,
-      showSettings: state => state.settings.showSettings,
-      needTagsView: state => state.settings.tagsView,
-      fixedHeader: state => state.settings.fixedHeader
+      sidebar: state => state.app.sidebar, // 侧边栏
+      device: state => state.app.device, // 装置
+      showSettings: state => state.settings.showSettings, // 展示设置
+      needTagsView: state => state.settings.tagsView, // tagsView
+      fixedHeader: state => state.settings.fixedHeader // 固定头部
     }),
     classObj() {
       return {
@@ -66,6 +66,7 @@ export default {
   },
   methods: {
     handleClickOutside() {
+      // Action 通过 store.dispatch 方法触发
       this.$store.dispatch('app/closeSideBar', { withoutAnimation: false })
     }
   }
