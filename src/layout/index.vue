@@ -48,7 +48,7 @@ export default {
   },
   mixins: [ResizeMixin], // 混入，增加一些选项合并逻辑
   computed: {
-    ...mapState({
+    ...mapState({ // 我们可以使用 mapState 辅助函数帮助我们生成计算属性
       sidebar: state => state.app.sidebar, // 侧边栏
       device: state => state.app.device, // 装置
       showSettings: state => state.settings.showSettings, // 展示设置
