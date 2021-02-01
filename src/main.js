@@ -16,7 +16,7 @@ import Element from 'element-ui'
 // ************ 自己写的js *********** //
 // 主app
 import App from './App'
-// 存储器
+// 存储器; 这里保证之后可以使用 this.$store.state
 import store from './store'
 // 路由器
 import router from './router'

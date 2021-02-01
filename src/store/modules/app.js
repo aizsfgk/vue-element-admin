@@ -49,7 +49,7 @@ const actions = {
 }
 
 export default {
-  namespaced: true,
+  namespaced: true, // 带有命名空间的模块
   state,
   mutations,
   actions

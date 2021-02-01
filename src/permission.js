@@ -12,25 +12,33 @@ NProgress.configure({ showSpinner: false }) // NProgress Configuration
 
 const whiteList = ['/login', '/auth-redirect'] // no redirect whitelist
 
-
 // 全局前置守卫
+// async 异步函数
+// to: Route: 即将要进入的目标 路由对象
+// from: Route: 当前导航正要离开的路由
+// next: Function: 一定要调用该方法来 resolve 这个钩子。执行效果依赖 next 方法的调用参数。
 router.beforeEach(async(to, from, next) => {
-  // start progress bar
+  // start progress bar; 启动进程条
   NProgress.start()
 
-  // set page title
+  // set page title; 设置文档标题
+  // 直接使用 访问 meta数据
   document.title = getPageTitle(to.meta.title)
 
   // determine whether the user has logged in
   const hasToken = getToken()
 
   if (hasToken) {
+    // 如果是登录页面；则直接显示该路由页面
     if (to.path === '/login') {
       // if is logged in, redirect to the home page
       next({ path: '/' })
       NProgress.done()
+
+    // / 其他
     } else {
       // determine whether the user has obtained his permission roles through getInfo
+      // / 获取用户信息
       const hasRoles = store.getters.roles && store.getters.roles.length > 0
       if (hasRoles) {
         next()
@@ -61,6 +69,7 @@ router.beforeEach(async(to, from, next) => {
   } else {
     /* has no token*/
 
+    // 免登录
     if (whiteList.indexOf(to.path) !== -1) {
       // in the free login whitelist, go directly
       next()

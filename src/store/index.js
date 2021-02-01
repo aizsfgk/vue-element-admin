@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+// 获取getters
 import getters from './getters'
 
 // 注册VueX组件
@@ -8,7 +9,7 @@ Vue.use(Vuex)
 // https://webpack.js.org/guides/dependency-management/#requirecontext
 // webpack 语法
 //
-// 
+// 模块文件
 const modulesFiles = require.context('./modules', true, /\.js$/)
 // console.log(modulesFiles)
 
