@@ -1,16 +1,31 @@
 <template>
+  <!-- app wrap -->
   <div :class="classObj" class="app-wrapper">
+    <!-- 如果是mobile特殊逻辑 -->
     <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
+    <!-- 侧边栏 -->
     <sidebar class="sidebar-container" />
+
+    <!-- 主窗口 wrap -->
     <div :class="{hasTagsView:needTagsView}" class="main-container">
+
+      <!-- 导航栏 wrap -->
       <div :class="{'fixed-header':fixedHeader}">
+        <!-- 导航栏 -->
         <navbar />
+        <!-- 面包屑 -->
         <tags-view v-if="needTagsView" />
       </div>
+
+      <!-- 主窗口 -->
       <app-main />
+
+      <!-- 右侧仪表盘 -->
       <right-panel v-if="showSettings">
-        <settings />
+        <!-- 设置 -->
+        <settings /> 
       </right-panel>
+
     </div>
   </div>
 </template>
@@ -22,16 +37,16 @@ import ResizeMixin from './mixin/ResizeHandler'
 import { mapState } from 'vuex'
 
 export default {
-  name: 'Layout',
+  name: 'Layout',  // 名字
   components: {
-    AppMain,
-    Navbar,
-    RightPanel,
-    Settings,
-    Sidebar,
-    TagsView
+    AppMain,    // 主窗口
+    Navbar,     // 导航
+    RightPanel, // 右侧仪表盘
+    Settings,   // 设置
+    Sidebar,    // 侧边栏
+    TagsView    // 面包屑
   },
-  mixins: [ResizeMixin],
+  mixins: [ResizeMixin], // 混入，增加一些选项合并逻辑
   computed: {
     ...mapState({
       sidebar: state => state.app.sidebar,
