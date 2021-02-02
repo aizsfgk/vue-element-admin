@@ -12,6 +12,14 @@
     }
   }
 }
+/*
+.blue-btn {
+  background: blue; }
+  .blue-btn:hover {
+    color: blue; }
+    .blue-btn:hover:before, .blue-btn:hover:after {
+      background: blue; }
+      */
 
 .blue-btn {
   @include colorBtn($blue)

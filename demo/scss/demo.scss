@@ -1,0 +1,14 @@
+@mixin colorBtn($color) {
+    background: $color;
+    &:hover {
+        color: $color;
+        &:before,
+        &:after {
+        background: $color;
+        }
+    }
+}
+  
+.blue-btn {
+    @include colorBtn(blue)
+}
