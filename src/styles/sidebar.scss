@@ -1,5 +1,6 @@
 #app {
 
+  // 主容器
   .main-container {
     min-height: 100%;
     transition: margin-left .28s;
@@ -7,9 +8,10 @@
     position: relative;
   }
 
+  // 侧边栏容器
   .sidebar-container {
-    transition: width 0.28s;
-    width: $sideBarWidth !important;
+    transition: width 0.28s; // 动画在width上
+    width: $sideBarWidth !important; // CSS中的!baiimportant一般都是用du做zhihack的，后面缀上了!daoimportant的css语句，让浏览器首选执行这个zhuan语句
     background-color: $menuBg;
     height: 100%;
     position: fixed;
@@ -26,7 +28,7 @@
     }
 
     .scrollbar-wrapper {
-      overflow-x: hidden !important;
+      overflow-x: hidden !important; // 如果它溢出了元素的内容区-剪辑div元素的左/右边缘内容：
     }
 
     .el-scrollbar__bar.is-vertical {
@@ -87,13 +89,14 @@
     }
   }
 
+  // 隐藏侧边栏
   .hideSidebar {
     .sidebar-container {
-      width: 54px !important;
+      width: 80px !important;
     }
 
     .main-container {
-      margin-left: 54px;
+      margin-left: 80px;
     }
 
     .submenu-title-noDropdown {
@@ -132,7 +135,7 @@
             height: 0;
             width: 0;
             overflow: hidden;
-            visibility: hidden;
+            visibility: hidden; // visibility属性指定一个元素是否是可见的。
             display: inline-block;
           }
         }

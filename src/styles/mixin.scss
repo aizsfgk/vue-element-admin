@@ -2,6 +2,8 @@
 @mixin 指令允许我们定义一个可以在整个样式表中重复使用的样式。
 @include 指令可以将混入（mixin）引入到文档中。
 */
+
+// 清除浮动
 @mixin clearfix {
   &:after {
     content: "";
@@ -10,6 +12,8 @@
   }
 }
 
+// css3 滚动样式
+// https://www.cnblogs.com/ranyonsue/p/9487599.html
 @mixin scrollBar {
   &::-webkit-scrollbar-track-piece {
     background: #d3dce6;
@@ -37,10 +41,13 @@
   margin: 0 auto;
 }
 
+// 三角型
+// https://segmentfault.com/a/1190000005715074?utm_source=sf-related
+// direction ：表示三角的朝向
 @mixin triangle($width, $height, $color, $direction) {
   $width: $width/2;
   $color-border-style: $height solid $color;
-  $transparent-border-style: $width solid transparent;
+  $transparent-border-style: $width solid transparent; // transparent : 表示透明
   height: 0;
   width: 0;
 
