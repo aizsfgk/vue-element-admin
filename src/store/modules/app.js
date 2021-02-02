@@ -1,6 +1,10 @@
+// 引入 cookie
 import Cookies from 'js-cookie'
 
+
+// 设置状态
 const state = {
+  
   sidebar: {
     opened: Cookies.get('sidebarStatus') ? !!+Cookies.get('sidebarStatus') : true,
     withoutAnimation: false

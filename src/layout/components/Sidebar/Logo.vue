@@ -25,8 +25,8 @@ export default {
   },
   data() {
     return {
-      title: 'ZV-Admin管理后台',
-      logo: 'ZV-Admin.png'
+      title: 'KVA管理后台',
+      logo: 'kva.png'
     }
   }
 }

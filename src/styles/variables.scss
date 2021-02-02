@@ -9,20 +9,29 @@ $yellow:#FEC171;
 $panGreen: #30B08F;
 
 // sidebar
+// 菜单文本-颜色
 $menuText:#bfcbd9;
+// 菜单激活文本-颜色
 $menuActiveText:#409EFF;
+// 子菜单激活文本-颜色
 $subMenuActiveText:#f4f4f5; // https://github.com/ElemeFE/element/issues/12951
 
+// 菜单背景
 $menuBg:#304156;
+// 放入的背景
 $menuHover:#263445;
 
+// 子菜单背景
 $subMenuBg:#1f2d3d;
+// 放入背景
 $subMenuHover:#001528;
 
+// 侧边栏宽度
 $sideBarWidth: 210px;
 
 // the :export directive is the magic sauce for webpack
-// https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
+// https://www.yht7.com/news/1918
+// 使用：export 实现CSS，JS变量共享
 :export {
   menuText: $menuText;
   menuActiveText: $menuActiveText;
