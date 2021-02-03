@@ -54,7 +54,8 @@ Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
 })
 
-// 大概意思应该就是，消息提示的环境配置，设置为开发环境或者生产环境
+// 大概意思应该就是，消息提示的环境配置，
+// true 开启提示
 Vue.config.productionTip = true
 
 new Vue({
